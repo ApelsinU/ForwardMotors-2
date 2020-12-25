@@ -93,26 +93,96 @@ function BannersSlide(){
 function NavSlide() {
     const sliderBtn = document.querySelectorAll(".button__round");
     const sliderBlock = document.querySelector(".slider__block");
+    let slideRollMedia;
+
+    function checkWidth() {           // workable
+        let blockWidth = document.querySelector(".slider__block").offsetWidth;
+
+        if (blockWidth == 1320) {
+            slideRollMedia = true;
+            console.log('true');
+        } else {
+            slideRollMedia = false;
+            console.log('false');
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", checkWidth);
+    window.onresize = checkWidth;
+
+   /* function checkWidth() {
+        let blockWidth = document.querySelector(".slider__block").offsetWidth;
+
+        if (blockWidth == 1320) {
+            slideRollMedia = true;
+        } else {
+            slideRollMedia = false;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", checkWidth);
+    window.onresize = checkWidth;*/
+
+
+    /*let firstRun = true;
+    let widthConst;
+    window.onresize = function(){
+        let blockWidth = document.querySelector(".slider__block").offsetWidth;
+
+        if (firstRun) {
+            widthConst = blockWidth;
+            firstRun = false;
+        } else {
+            if (blockWidth == widthConst) {
+
+            } else {
+                if (blockWidth == 1320) {
+                    slideRollMedia = true;
+                    console.log('true');
+                } else {
+                    slideRollMedia = false;
+                    console.log('false');
+                }
+                widthConst = blockWidth;
+                sliderBlock.style.transform = 'translate(0%)';
+            }
+        }
+    };*/
+
 
     sliderBtn.forEach(onSlideClick);
-
     function onSlideClick(btnitem){
         btnitem.addEventListener("click", function(){
             let currentBtn = btnitem;
             let slideId = currentBtn.getAttribute("data-btn");
 
-            switch(slideId) {
-                case '#btn_1': sliderBlock.style.transform = 'translate(0%)';
-                    break;
-                case '#btn_2': sliderBlock.style.transform = 'translate(-20%)';
-                    break;
-                case '#btn_3': sliderBlock.style.transform = 'translate(-40%)';
-                    break;
-                case '#btn_4': sliderBlock.style.transform = 'translate(-60%)';
-                    break;
-                case '#btn_5': sliderBlock.style.transform = 'translate(-80%)';
-                    break;
-            };
+
+            if (slideRollMedia) {
+                switch(slideId) {
+                    case '#btn_1': sliderBlock.style.transform = 'translate(0%)';
+                        break;
+                    case '#btn_2': sliderBlock.style.transform = 'translate(-33%)';
+                        break;
+                    case '#btn_3': sliderBlock.style.transform = 'translate(-49.8%)';
+                        break;
+                    case '#btn_4': sliderBlock.style.transform = 'translate(-66.6%)';
+                        break;
+                }
+            } else {
+
+                switch(slideId) {
+                    case '#btn_1': sliderBlock.style.transform = 'translate(0%)';
+                        break;
+                    case '#btn_2': sliderBlock.style.transform = 'translate(-20%)';
+                        break;
+                    case '#btn_3': sliderBlock.style.transform = 'translate(-40%)';
+                        break;
+                    case '#btn_4': sliderBlock.style.transform = 'translate(-60%)';
+                        break;
+                    case '#btn_5': sliderBlock.style.transform = 'translate(-80%)';
+                        break;
+                }
+            }
 
             if( ! currentBtn.classList.contains('active')){
                 sliderBtn.forEach(function(btnitem){
