@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
     <title> Автозапчасти для легковых и грузовых авто </title>
@@ -10,6 +11,7 @@
 </head>
 <body>
 
+<div class="container-body">
     <!-- header -->
     <div class="container">
         <header class="header">
@@ -70,7 +72,12 @@
                         <li><a class="nav__card" href="" title="Контакты"> контакты </a></li>
                     </ul>
                 </div> <!-- .nav__container -->
+
+
             </nav>
+            <div class="burger">
+                    <div class="burger__btn"></div>
+                </div>
         </header>
     </div> <!-- .header__cont -->
 
@@ -268,8 +275,6 @@
             <div class="sidebar__left">
                 <h2 class="sidebar__header sidebar__header--video"> видеоканал </h2>
 
-                <div class="sidebar__content">
-
                     <div class="card__video">
                         <iframe class="vid" src="https://www.youtube.com/embed/N_xCedRLwBQ"
                             frameborder="0"
@@ -304,7 +309,7 @@
 
                     <a><span class="video__text" title="Видеоролики о замене запчастей и другой технической информации"> Другие видеоролики </span></a>
 
-                </div> <!-- .sidebar__content -->
+                 <!-- .sidebar__content -->
             </div> <!-- .sidebar__left -->
         </div> <!-- .left -->
 
@@ -604,6 +609,8 @@
 
         </footer>
     </div>
+
+</div>
 
     <!-- JavaScript -->
     <script src = "script.js"> </script>
