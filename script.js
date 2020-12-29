@@ -1,5 +1,6 @@
 BannersSlide();
 NavSlide();
+Burger();
 
 function BannersSlide(){
 
@@ -95,67 +96,27 @@ function NavSlide() {
     const sliderBlock = document.querySelector(".slider__block");
     let slideRollMedia;
 
+    /* Get size of slider. Mark it by flag 'slideRollMedia' */
     function checkWidth() {           // workable
-        let blockWidth = document.querySelector(".slider__block").offsetWidth;
+        let sliderWidth = document.querySelector(".slider").offsetWidth;
 
-        if (blockWidth == 1320) {
+        if (sliderWidth > 225) {
             slideRollMedia = true;
             console.log('true');
         } else {
             slideRollMedia = false;
             console.log('false');
         }
-    }
-
+    };
     document.addEventListener("DOMContentLoaded", checkWidth);
     window.onresize = checkWidth;
 
-   /* function checkWidth() {
-        let blockWidth = document.querySelector(".slider__block").offsetWidth;
-
-        if (blockWidth == 1320) {
-            slideRollMedia = true;
-        } else {
-            slideRollMedia = false;
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", checkWidth);
-    window.onresize = checkWidth;*/
-
-
-    /*let firstRun = true;
-    let widthConst;
-    window.onresize = function(){
-        let blockWidth = document.querySelector(".slider__block").offsetWidth;
-
-        if (firstRun) {
-            widthConst = blockWidth;
-            firstRun = false;
-        } else {
-            if (blockWidth == widthConst) {
-
-            } else {
-                if (blockWidth == 1320) {
-                    slideRollMedia = true;
-                    console.log('true');
-                } else {
-                    slideRollMedia = false;
-                    console.log('false');
-                }
-                widthConst = blockWidth;
-                sliderBlock.style.transform = 'translate(0%)';
-            }
-        }
-    };*/
-
-
+    /* Based on flag 'slideRollMedia' choose the rule to slider */
     sliderBtn.forEach(onSlideClick);
     function onSlideClick(btnitem){
         btnitem.addEventListener("click", function(){
             let currentBtn = btnitem;
             let slideId = currentBtn.getAttribute("data-btn");
-
 
             if (slideRollMedia) {
                 switch(slideId) {
@@ -193,8 +154,48 @@ function NavSlide() {
             }
         });
 
-    }
+    };
+
+    /* Get window width. If it media-point, reset slider */
+
+    /*function windowWidth(resetFlag) {
+        let winWidth = document.querySelector("body").offsetWidth;
+
+
+        if ((winWidth < 770) && (winWidth >= 486)) {
+
+            if (resetFlag){
+                sliderBlock.style.transform = 'translate(0%)';
+                console.log('reset!');
+                resetFlag == false;
+                return resetFlag;
+            };
+
+        } else {
+            resetFlag = true;
+            return resetFlag;
+        };
+    };
+
+    let resetFlag = true;
+    window.onresize = windowWidth(resetFlag);*/
 
     document.querySelector(".button__round").click();
 }
 
+function Burger() {
+    let burgerBtn = document.querySelector('.burger__btn');
+    let burgerMenu = document.querySelector('.burger__menu');
+
+    burgerBtn.addEventListener('click', function(){
+
+        if (burgerBtn.classList.contains('.active')) {
+            burgerMenu.style.display = 'none';
+            burgerBtn.classList.remove('.active');
+        } else {
+            burgerMenu.style.display = 'block';
+            burgerBtn.classList.add('.active');
+        }
+
+    });
+}
