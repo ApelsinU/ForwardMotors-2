@@ -43,7 +43,6 @@ function BannersSlide(){
 
     function ActionStart(){
         BarEvent();        // 5000
-       // let timerId = setInterval(ChangeImg, 6000);
     }
 
     function BarEvent(){
@@ -80,7 +79,6 @@ function BannersSlide(){
         progress.style.width = '0';
 
         LineAnimation();
-
 
         let timer2Id = setTimeout(Loading, 500);
     }
@@ -155,30 +153,6 @@ function NavSlide() {
         });
 
     };
-
-    /* Get window width. If it media-point, reset slider */
-
-    /*function windowWidth(resetFlag) {
-        let winWidth = document.querySelector("body").offsetWidth;
-
-
-        if ((winWidth < 770) && (winWidth >= 486)) {
-
-            if (resetFlag){
-                sliderBlock.style.transform = 'translate(0%)';
-                console.log('reset!');
-                resetFlag == false;
-                return resetFlag;
-            };
-
-        } else {
-            resetFlag = true;
-            return resetFlag;
-        };
-    };
-
-    let resetFlag = true;
-    window.onresize = windowWidth(resetFlag);*/
 
     document.querySelector(".button__round").click();
 }
