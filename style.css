@@ -1141,13 +1141,13 @@ a{
 @media (max-width: 486px) {         /* Mobile */
 
     .container {
-        width: 260px;
-        padding: 0 5px;
+        width: 100%;
+        padding: 0 10px;
         margin: 0 auto;
 
     }
     .header, .left, .right, .center, .footer, .section{
-        width: 260px;
+        width: 100%;
     }
 
     .footer {
@@ -1166,16 +1166,18 @@ a{
     /* Banner */
 
     .banner {
-        height: 164.2px;
+        width: 100%;
     }
 
     .banner__line {
-        height: 8px;
+        display: none;
+        top: 100%;
     }
 
     .progress {
-        height: 4px;
-        margin-top: 0;
+        display: none;
+
+        top: 1600px;
     }
 
     /* News */
@@ -1271,12 +1273,8 @@ a{
         height: 40px;
     }
 
-    .btn{
+    .btn {
         top: 19px;
-    }
-
-    .burger__container {
-        width: 100px;
     }
 
     .burger__card {
